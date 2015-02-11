@@ -11,5 +11,7 @@ This repository will contain some of my **dotfiles**, of which I have accumulate
 * Mutt, offlineIMAP and msmtp
 * Pentadactyl
 * vim
+* My startup.sh file
+* And the mod4 file used for disabling Caps Lock and making a Ctrl out of it
 
 More to come later.
