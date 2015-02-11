@@ -1,6 +1,4 @@
 dotfiles
 ========
 
-Hah, this is brilliant. So, as soon as exams end, I am finally starting to learn Github, to use it, to contribute for open source projects.
-
-I place this here so that I don't forget about the idea, for the third exams in a row.
+This repository will contain my dotfiles, of which I have accumulated a lot. Both for easy management and for actual git practice on something more real than "this is a test file" or "this is an untracked file, shouldn't change"
