@@ -1,0 +1,172 @@
+# Basic config
+
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop 
+set imap_keepalive = 900
+
+# Header stuff
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+
+ignore *
+unignore from: date subject to cc
+unignore x-mailing-list: posted-to:
+unignore x-mailer:
+
+# For better looks
+set markers=no # don't put '+' at the beginning of wrapped lines
+set pager_index_lines= 5 # how large is the index window?
+set sort = 'threads'
+
+# My Editor
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
+
+set reverse_alias #use names from my own address book, if they exist
+set alias_file="~/.mutt/alias"
+
+set editor="vim +':set textwidth=77' +':set wrap'"
+
+set implicit_autoview
+auto_view text/html  application/x-pgp-message
+set mailcap_path="~/.mailcap"
+
+#macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
+ macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m' 
+
+#source /home/sh/.mutt/colorschemes/mutt-colors-solarized-dark-256.muttrc
+source /home/sh/.mutt/colorschemes/vombatidae.mutt
+#source /home/sh/.mutt/colorschemes/nglh.mutt
+
+#use GPG
+source ~/.mutt/gpg.rc # Use GPG
+source "gpg -d ~/.mutt/c.gpg |"
+
+# http://pbrisbin.com/posts/mutt_gmail_offlineimap/
+
+set quit             # don't ask, just do!
+unset mark_old       # read/new is good enough for me
+
+# sort/threading
+set sort     = threads
+set sort_aux = reverse-last-date-received
+set sort_re
+
+# look and feel
+set pager_index_lines = 8
+set pager_context     = 5
+set pager_stop
+set menu_scroll
+set smart_wrap
+set tilde
+unset markers
+
+# composing 
+set fcc_attach
+unset mime_forward
+set forward_format = "Fwd: %s"
+set include
+set forward_quote
+
+ignore *                               # first, ignore all headers
+unignore from: to: cc: date: subject:  # then, show only these
+hdr_order from: to: cc: date: subject: # and in this order
+
+set mbox_type=Maildir
+set folder=~/.mail
+
+# initial box
+set spoolfile=~/.mail/Gmail/INBOX
+
+
+set sendmail_wait=-1
+set wait_key = no        # shut up, mutt
+set timeout = 3          # idle time before scanning
+set mail_check = 0       # minimum time between scans
+unset move               # gmail does that
+set delete               # don't ask, just do
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+set smart_wrap
+
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]─%V──[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?─── %l|%L"
+
+macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
+
+# Index Key Bindings ---------------------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+macro index O "<shell-escape>sh /home/sh/srv/scripts/offlineimap.sh<enter>"           "run offlineimap to sync all mail"
+
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# Pager Key Bindings ---------------------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+bind compose P postpone-message # can now use P instead of y to postpone sending the message.
+
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+# URLs
+  color body brightgreen black "(http[s]|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+  color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+";
+  mono  body bold              "(http[s]|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+  mono  body bold              "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+";
+
+  # email addresses
+color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold  "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+folder-hook Gmail set from="shamotskyi@gmail.com"
+folder-hook Anche set from="pchr8@anche.no"
+
+macro index <f2> '<change-folder>~/.mail/Gmail/INBOX<enter>'
+macro index <f3> '<change-folder>~/.mail/Anche/INBOX<enter>'
+
+
+source ~/.mutt/accounts/Gmail
+
+folder-hook Gmail/* source ~/.mutt/accounts/Gmail
+folder-hook Anche/* source ~/.mutt/accounts/Anche
