@@ -1,11 +1,40 @@
-keycode 66 = Control_L
 clear Lock
-add Control = Control_L
-keycode 37 = Hyper_L
 clear mod4
 clear Control
+
+keycode 66 = Control_L
+keycode 37 = Hyper_L
+
 add Control = Control_R Control_L
 add mod4 = Super_L Super_R
 add mod3 = Hyper_L
 
 
+
+!   keycode 66 = Control_L
+!   clear Lock
+!   clear Control
+!   keycode 37 = Hyper_L
+!   add Control = Control_L
+!   add mod4 = Super_L Super_R
+!   !add mod3 = Hyper_L
+
+! set F13 and others to F keys as is
+! http://xahlee.info/linux/linux_xmodmap_tutorial.html
+! keycode 192 = BackSpace
+! keycode 192 = Hyper_L
+keycode 192 = F13
+
+! Now F14=Pedal points,  like Ctrl, to Hyper_L
+
+! Let's try to map two keys to escape
+
+! Right-alt
+!keycode 108 = Escape
+
+! This is used to then do
+! bindsym uring exec xdotool click 1
+! To click a mouse button with it. I seem to use this more often than I would expect
+! 105 is right-ctrl
+
+!keycode 134 = uring 
