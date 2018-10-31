@@ -1,5 +1,5 @@
 #INFOSEC
-https://krebsonsecurity.com/feed/ "infosec"
+https://krebsonsecurity.com/feed/ "infosec" 0
 http://randywestergren.com/feed/ "infosec"
 https://krypt3ia.wordpress.com/feed/ "infosec" "OSINT"
 https://www.schneier.com/blog/atom.xml "infosec"
@@ -13,7 +13,7 @@ https://plusbryan.com/feed "infosec"
 http://blog.blackfan.ru/feeds/posts/default?alt=rss "infosec"
 https://netcat.pro/feed/ "infosec"
 https://hackr.pl/feed/ "infosec"
-https://rss.packetstormsecurity.com/files/ "infosec"
+#https://rss.packetstormsecurity.com/files/ "infosec"
 https://summitroute.com/blog/feed.xml "infosec"
 https://feeds.feedburner.com/n0where "infosec"
 https://www.reddit.com/r/pwned/top/.rss?sort=top&t=month "infosec"
@@ -27,7 +27,7 @@ https://www.reddit.com/r/opsec/top/.rss?sort=top&t=week "infosec" "reddit"
 
 #IT general
 
-
+https://blog.acolyer.org/feed/ "it" "0"
 https://www.paulfurley.com/feed.xml
 https://feeds2.feedburner.com/debianletters "it"
 https://randomascii.wordpress.com/feed/ "it"
@@ -46,7 +46,7 @@ https://gplusrss.com/rss/feed/e7c2168a15f1a6d01da4b20037f77c75584e64c330c60 "it"
 https://medium.com/feed/@shava23 "it"
 http://sealedabstract.com/feed/ "it"
 http://www.daemonology.net/blog/index.rss "it"
-http://www.daemonology.net/hn-weekly-ask/index.rss "it"
+http://www.daemonology.net/hn-weekly-ask/index.rss "it" 0 
 https://www.edge.org/feed "news"
 http://blog.paper.li/feed/ "it"
 https://computingforpsychologists.wordpress.com/feed/ "it"
@@ -60,56 +60,55 @@ https://www.aaron-gustafson.com/atom.xml "it"
 https://refactorsaurusrex.com/index.xml "it"
 https://chris-lamb.co.uk/feed "it"
 https://feeds.feedburner.com/marginalrevolution/feed?format=xml "it"
-http://n-gate.com/index.atom "it" "humour"
+http://n-gate.com/index.atom "it" "humour" 0 
 #https://hackaday.com/blog/feed/ "it"
 
 # PROD/MOTIVATION/RATIONALITY
-https://www.scotthyoung.com/blog/feed/ "productivity"
-https://sivers.org/en.atom "productivity"
-http://www.stevepavlina.com/feed "productivity"
-https://feeds.feedburner.com/rudiusmedia/rch?format=xml "productivity"
+https://www.scotthyoung.com/blog/feed/ "productivity" 0 
+https://sivers.org/en.atom "productivity" 0 
+http://www.stevepavlina.com/feed "productivity" 0 
+https://feeds.feedburner.com/rudiusmedia/rch?format=xml "productivity" 0
 https://feeds.feedburner.com/eric-blue "it"
 http://konigi.com/index.xml "productivity" "rationality"
-http://slatestarcodex.com/feed/ "rationality"
-https://feeds.feedburner.com/MeltingAsphalt "rationality"
+http://slatestarcodex.com/feed/ "rationality" 0 
+https://feeds.feedburner.com/MeltingAsphalt "rationality" 0
 https://feeds2.feedburner.com/SociologicalImagesSeeingIsBelieving "rationality"
 http://www.overcomingbias.com/feed "rationality"
-http://putanumonit.com/feed/ "rationality"
+http://putanumonit.com/feed/ "rationality" 0 
 https://feeds.feedburner.com/thelastpsychiatrist/fLMy "rationality" "psy"
 http://languagelog.ldc.upenn.edu/nll/?feed=rss2 "art" "language"
 http://feeds.ribbonfarm.com/Ribbonfarm "rationality"
-https://pumpkinperson.com/feed/ "rationality"
 http://andrewgelman.com/feed/ "rationality"
 https://www.gwern.net/atom.xml "rationality"
 http://feeds.feedburner.com/LukeMuehlhauser "rationality" "it"
 http://nautil.us/rss/all "science" "random"
 http://saulalbert.net/feed/ "it"
 https://feeds.feedburner.com/brainpickings/rss "inspiration" "art"
-https://feeds.feedburner.com/ListsOfNote "inspiration" "art"
+https://feeds.feedburner.com/ListsOfNote "inspiration" "art" 0 
 http://www.bostonglobe.com/rss/bigpicture "inspiration" "art"
 http://www.davidrevoy.com/feed/rss "art"
 http://apeonthemoon.com/feed/ "art" "theory" "inspiration"
 https://kpi-fict-ip32.github.io/feed.xml "kpi" "study" "uni"
 http://www.booktryst.com/feeds/posts/default "random"
 http://lotek.fr/feed/ "art" "random"
-http://feeds.bbci.co.uk/news/world/rss.xml "news"
+#http://feeds.bbci.co.uk/news/world/rss.xml "news"
 http://highability.org/feed/ "psy"
 https://feeds.feedburner.com/LettersOfNote "art" "inspiration"
 http://explore.brainpickings.org/rss "art" "inspiration" "random"
-http://bvz.name/blog/rss/ "art"
+http://bvz.name/blog/rss/ "art" 0 
 https://bunyk.wordpress.com/feed/ "it"
 https://feeds.feedburner.com/inspiredua "inspiration"
 http://oldtimeycats.com/rss "inspiration"
 https://zerojustice315.wordpress.com/feed/ "art"
-https://feeds.feedburner.com/brutereason "rationality"
+https://feeds.feedburner.com/brutereason "rationality" 0 
 https://feeds.feedburner.com/99pi "inspiration" "random" "podcast"
 http://www.npr.org/rss/podcast.php?id=510298 "inspiration" "podcast"
 https://www.jwz.org/blog/feed/ "it" "random" "inspiration"
 https://creativecommons.org/blog/feed/ "it"
-https://www.eff.org/rss/updates.xml "it"
+#https://www.eff.org/rss/updates.xml "it"
 https://feeds.feedburner.com/OpenCulture "art" "inspiration"
 https://feeds.feedburner.com/FlossForScience?format=xml "it"
-https://barrycomersblog.com/feed/ "art"
+#https://barrycomersblog.com/feed/ "art"
 http://abnormalreturns.com/feed/ "finance"
 https://thesocietypages.org/cyborgology/feed/ "rationality"
 http://betabug.ch/blogs/ch-athens/rdf10_xml "it"
@@ -176,7 +175,7 @@ http://geoff.greer.fm/feed.atom "RSS/tech"
 http://feeds.feedburner.com/codahale "RSS/tech"
 http://grugq.tumblr.com/rss "RSS/tech"
 https://www.nikcub.com/feed/atom "RSS/tech"
-http://unenumerated.blogspot.com/feeds/posts/default "RSS/economics"
+http://unenumerated.blogspot.com/feeds/posts/default "RSS/economics" 0
 http://ascii.textfiles.com/feed/atom "RSS/tech"
 http://feeds.feedburner.com/Betterexplained "RSS/tech"
 http://feeds.feedburner.com/daniel-lemire/atom "RSS/tech"
@@ -376,4 +375,4 @@ https://www.reddit.com/r/privacy/top/.rss?sort=top&t=month reddit
 https://feed.tedium.co/ random IT
 
 
-http://feeds.themorningnews.org/tmn/rss "random"
+# http://feeds.themorningnews.org/tmn/rss "random"

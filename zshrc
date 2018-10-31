@@ -1,8 +1,11 @@
+# SPRINT FOR TASK WARRIOR
+export SPRINT=44
+
 # If you come from bash you might have to change your $PATH.
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/sh/.oh-my-zsh
-   export TZ="/usr/share/zoneinfo/Europe/Kiev"
+  export TZ="/usr/share/zoneinfo/Europe/Berlin"
 
  export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
@@ -340,28 +343,47 @@ export LESS=" -R "
 # Srv
 alias c="clear"
 alias hg='history | grep'
+#alias k='killall'
+alias diff="colordiff"
 
 # Programs
-alias t="~/s/t/todo.sh"
+#alias t="~/s/t/todo.sh"
 alias n="newsboat"
+alias m="neomutt"
 alias v="vim"
-
-alias T="vim ~/T"
-#alias t=' vim ~/s/p/t/"$(date +%d%m%y)"  -u  ~/s/p/t/.vimrc'
-alias t=' vim ~/s/T/t"$(date +%d%m%y)"  -u  ~/s/T/t/.vimrc'
-
-
-alias o='sudo openvpn --config mullvad_linux.conf --writepid /etc/openvpn/mv.pid'
-alias g='gpg --homedir .gnupg'
-
-alias diff="colordiff"
-alias L="i3lock -c 000000 & xset dpms force off"
 alias f="~/s/p/firefox/firefox"
+alias a="thunar"
+alias le="ledger -f ~/s/ledger/ledger.txt --strict"
+alias l="vim ~/s/ledger/ledger.txt"
+
+# TASKS AND TODO
+    alias T="vim ~/T"
+    #alias t=' vim ~/s/p/t/"$(date +%d%m%y)"  -u  ~/s/p/t/.vimrc'
+    #alias t=' vim ~/s/T/t"$(date +%d%m%y)"  -u  ~/s/T/t/.vimrc'
+    #
+    #
+    alias t='task'
+    # Current sprint:
+    alias s='task s sprint:$SPRINT or sprint:c' 
+    # someday report
+    alias ts='task sd'
+
+    alias w='timew'
+    alias tw='timew'
+
+    alias o='sudo openvpn --writepid /etc/openvpn/mv.pid --config'
+        #alias o='sudo openvpn --writepid /etc/openvpn/mv.pid --config mullvad_linux.conf'
+            alias g='gpg --homedir .gnupg'
+
+
+            alias L="i3lock -c 000000 & xset dpms force off"
+alias ss="sudo systemctl suspend"
+
 
 
 # Folders
-#alias th='cd /home/sh/P/k/thesis/django_test/tharmas/server/tharmas'
 alias qs='cd /home/sh/p/projects/qs/git/qs/spreadsheets'
+alias h='cd /home/sh/p/u/home'
 
 
 
@@ -371,3 +393,43 @@ export LANG=en_us.UTF-8
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+MAIL=/home/sh/.mutt/spool/mail/shamotskyi && export MAIL
+export SSLKEYLOGFILE=~/sslkeylog.log
+
+# add Taskwarrior
+# TASK WARRIOR INTO MY PROMPT
+# this part is just fun-with-utf8
+# https://twitter.com/pjf/status/852466839145795584
+URGENT="2757"
+DUETOMORROW="2690"
+DUETODAY="2691"
+OVERDUE="2639"
+OK="2714"
+
+# shows if any TaskWarrior tasks are in need of attention
+function task_indicator {
+    if [ `task +READY +OVERDUE count` -gt "0" ]  ; then
+        printf "%b" "\u$OVERDUE"
+    elif [ `task +READY +DUETODAY count` -gt "0" ]  ; then
+        printf "%b" "\u$DUETODAY"
+    elif [ `task +READY +DUETomorrow count` -gt "0" ]  ; then
+        printf "%b" "\u$DUETOMORROW"
+    elif [ `task +READY urgency \> 10 count` -gt "0" ]  ; then
+        printf "%b" "\u$URGENT"
+    else
+        printf "%b" "\u$OK"
+    fi
+}
+task="\$(task_indicator)"
+addprompt=$task
+PROMPT="$addprompt $PROMPT"
+
+# set an ad-hoc GUI timer
+tm() {
+  local N=$1; shift
+
+  #(sleep $N && mpg123 -q ~/s/sounds/tib.mp3 ) &
+  (utimer -c > ~/s/sounds/outbash $N && mpg123 -q ~/s/sounds/tib.mp3  &
+      zenity --info --title="Time's Up" --text="${*:-BING}")
+  #echo "timer set for $N"
+}

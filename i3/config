@@ -52,7 +52,7 @@ bindsym Mod4+x kill
 bindsym Mod4+r exec synapse
 
 # start dmenu (a program launcher)
-bindsym Mod4+n exec i3lock -i ~/I/shashlik.png -t
+bindsym Mod4+n exec i3lock -i ~/s/i/lyudka.png -t
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -161,7 +161,7 @@ bindsym Mod3+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #output HDMI-1
+    output HDMI-0
     #status_command i3status | ~/.i3/wrapper.py 
     status_command i3status 
 	#workspace_buttons no
@@ -174,13 +174,14 @@ bar {
 }
 
 bar {
-    output eDP-1
+    output eDP
     status_command i3status --config=~/.i3status-small | ~/.i3/wrapper.py
 	#workspace_buttons no
 	strip_workspace_numbers yes
-	mode hide
+#	mode hide
 	modifier Mod4
 	position bottom
+    output_format="i3bar"
 
 }
 #######################################################################
@@ -245,6 +246,21 @@ bindsym Mod4+Shift+F3 move container to workspace F3
 bindsym Mod4+F4 workspace F4
 bindsym Mod4+Shift+F4 move container to workspace F4
 
+bindsym Mod4+F5 workspace F5
+bindsym Mod4+Shift+F5 move container to workspace F5
+
+bindsym Mod4+F6 workspace F6
+bindsym Mod4+Shift+F6 move container to workspace F6
+
+bindsym Mod4+F7 workspace F7
+bindsym Mod4+Shift+F7 move container to workspace F7
+
+bindsym Mod4+F8 workspace F8
+bindsym Mod4+Shift+F8 move container to workspace F8
+
+bindsym Mod4+F9 workspace F9
+bindsym Mod4+Shift+F9 move container to workspace F9
+
 # bindsym Mod4+Shift+apostrophe move container to workspace 11
 bindsym Mod4+Shift+comma move container to workspace 12:ﬃ
 bindsym Mod4+Shift+period move container to workspace 13:<span foreground="white">♫</span>
@@ -298,14 +314,19 @@ bindsym Mod4+g --release exec xmodmap ~/s/mod4
 # Terminal programs
 # Todo: in own workspace
     #bindsym Mod3+n exec --no-startup-id i3-msg "exec urxvt -hold -e  newsbeuter"
-    bindsym Mod3+m exec --no-startup-id i3-msg "exec urxvt -e mutt "
-    bindsym Mod3+equal exec "urxvt -name scratchpad -e vim __scratchpad"
-    bindsym Mod3+Shift+t exec "urxvt -name todo -e vim T"
-    bindsym Mod3+n exec --no-startup-id i3-msg "exec urxvt -name news -hold -e  newsbeuter"
+    #bindsym Mod3+m exec --no-startup-id i3-msg "exec urxvt -e mutt "
+    #bindsym Mod3+equal exec "urxvt -name scratchpad -e vim __scratchpad"
+    #bindsym Mod3+Shift+t exec "urxvt -name todo -e vim T"
+    #bindsym Mod3+n exec --no-startup-id i3-msg "exec urxvt -name news -hold -e  newsbeuter"
+
+# Timers
+    bindsym Mod3+n exec "utimer -c 15m > ~/s/sounds/outpomo && mpg123 -q ~/s/sounds/tib.mp3"
+    bindsym Mod3+s exec "utimer -c 5m > ~/s/sounds/outpause && mpg123 -q ~/s/sounds/cl.mp3"
+    bindsym Mod3+k exec "killall mpg123"
 
 # Service programs
     bindsym Mod3+p exec pavucontrol
-    bindsym Mod3+Shift+l exec i3lock -i ~/I/shashlik.png -t
+    #bindsym Mod3+Shift+l exec i3lock -i ~/I/shashlik.png -t
 # Screenshots
         bindsym Mod3+s --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
         #bindsym Print --release exec scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
@@ -335,6 +356,7 @@ bindsym Mod4+g --release exec xmodmap ~/s/mod4
         for_window [window_type="menu"] floating enable
 
         assign [class="^URxvt$" instance="^irssi$"] → 3
+        assign [class="Conky" title="whatever"] workspace 1
 
         bindsym uring exec xdotool click 1
 bindsym Mod1+Mod4+m move workspace to output left
