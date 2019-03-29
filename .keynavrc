@@ -1,0 +1,92 @@
+ctrl+semicolon start, grid 4x4
+#F13 start, grid 4x4
+
+# CUTTING 
+# Upper two rows
+1 cell-select 1
+2 cell-select 5
+3 cell-select 9
+4 cell-select 13
+
+apostrophe cell-select 2
+comma cell-select 6
+period cell-select 10
+p cell-select 14
+
+Cyrillic_shorti cell-select 2
+Cyrillic_tse cell-select 6
+Cyrillic_u cell-select 10
+Cyrillic_ka cell-select 14
+
+# Lower two rows
+a cell-select 3
+o cell-select 7
+e cell-select 11
+u cell-select 15
+
+Cyrillic_ef cell-select 3
+Cyrillic_yeru cell-select 7
+Cyrillic_ve cell-select 11
+Cyrillic_a cell-select 15
+
+semicolon cell-select 4
+q cell-select 8
+j cell-select 12
+k cell-select 16
+
+Cyrillic_ya cell-select 4
+Cyrillic_che cell-select 8
+Cyrillic_es cell-select 12
+Cyrillic_em cell-select 16
+
+
+# CUTTING TO INTERSECTIONS 
+
+ctrl+1 cut-left,  cut-up
+ctrl+2 cut-right, cut-up
+
+ctrl+apostrophe  cut-left, cut-down
+ctrl+comma cut-right, cut-down
+
+# Cutting normally
+
+shift+a cut-left
+shift+o cut-right
+
+shift+q cut-up
+shift+semicolon cut-down
+
+# MOVING 
+
+shift+e move-left
+shift+apostrophe move-left
+
+shift+l move-right
+shift+u move-right
+
+shift+j move-down
+shift+k move-up
+
+# COMMANDS (; q j k)
+
+ctrl+a cursorzoom 250 250
+ctrl+o windowzoom
+ctrl+u history-back
+ctrl+e drag 1
+
+#MOUSE
+# move mouse to the center of the selected region
+#semicolon warp
+
+ctrl+3 warp, click 1
+ctrl+4 warp, click 3
+ctrl+5 warp, click 2
+ctrl+period click 1
+ctrl+p click 3
+
+y click 4,end
+i click 5,end
+
+# scroll and click
+i click 5,click 1
+d click 5

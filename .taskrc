@@ -1,0 +1,164 @@
+# CURRENT SPRINT
+# until I finally do it __right__, edit here.
+#uda.sprint.default=7
+#urgency.uda.sprint.7.coefficient=4
+
+urgency.uda.sprint.c.coefficient=4
+urgency.user.project.s.coefficient=100
+urgency.user.tag.O.coefficient=10
+urgency.user.tag.A.coefficient=3
+
+
+#############################################################################
+#############################################################################
+
+# UDA
+#############################################################################
+
+# Sprint same as number of week in year;
+uda.sprint.type=string 
+uda.sprint.label=Sprint
+
+uda.est.type=duration
+uda.est.label=Estimate
+uda.est.default=PT1H
+
+# REPORTS
+#############################################################################
+
+report.next.columns=id,start.age,depends,est,project,tags,sprint,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.next.labels=D,Active,Deps,E,Project,Tag,S,Recur,S,Due,Until,Description,Urg
+report.next.filter=-s status::pending -MOD
+
+#Someday
+report.sd.columns=id,start.age,depends,est,project,tags,sprint,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.sd.labels=D,Active,Deps,E,Project,Tag,S,Recur,S,Due,Until,Description,Urg
+report.sd.filter=status:pending sprint:s 
+
+#Mod -- for repetitive tasks
+report.m.description='MOD'
+report.m.columns=id,project,tags,pri,est,description,urgency
+report.m.labels=ID,Project,T,P,E,Description,U
+report.m.sort=urgency-
+report.m.filter=status:pending +MOD 
+
+#srv -- for continuously needed tasks
+report.srv.description='srv'
+report.srv.columns=id,project,tags,pri,est,description,urgency
+report.srv.labels=ID,Project,T,P,E,Description,U
+report.srv.sort=urgency-
+report.srv.filter=status:pending +s
+
+# Current sprint
+report.s.description='Current sprint'
+report.s.columns=id,project,tags,pri,est,due.relative,description,urgency
+report.s.labels=ID,Project,T,P,E,D,Description,U
+#report.s.sort=due+
+report.s.sort=urgency-
+report.s.filter=status:pending  -s
+
+# Currently active name
+report.a.description='Currently active name'
+report.a.columns=description,start.age
+report.a.labels=D,A
+#report.s.sort=due+
+report.a.sort=urgency-
+report.a.filter=+ACTIVE
+
+# OTHER
+#############################################################################
+# Files
+
+data.location=~/.task
+
+# Theme 
+
+# Color theme (uncomment one to use)
+#include /usr/share/doc/task/rc/light-16.theme
+#include /usr/share/doc/task/rc/light-256.theme
+include /usr/share/doc/task/rc/dark-16.theme
+#include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-red-256.theme
+#include /usr/share/doc/task/rc/dark-green-256.theme
+#include /usr/share/doc/task/rc/dark-blue-256.theme
+#include /usr/share/doc/task/rc/dark-violets-256.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-gray-256.theme
+#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
+#include /usr/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/share/doc/task/rc/solarized-light-256.theme
+#include /usr/share/doc/task/rc/no-color.theme
+
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+
+
+# COLORS
+rule.precedence.color=deleted,completed,active,keyword.,project.,tag.,uda.sprint.n,overdue,scheduled,due,blocked,blocking,recurring,tagged,uda.
+
+# Doing now
+color.active=black on yellow
+# Five minutes
+
+color.tag.F=color239
+# "One thing I do today"
+color.tag.O=underline 
+color.tag.A=underline 
+
+# Projects
+color.project.HS=rgb015
+color.project.house=color3
+color.project.h=color3
+color.project.hp=blue
+color.project.ai=rgb225
+color.project.a=yellow
+color.project.b=rgb225
+#color.project.r=rgb112 #random
+color.project.r=rgb454 #random
+
+color.project.M=rgb302
+color.project.ms=red
+color.project.it=rgb150
+
+color.project.s=blue
+color.project.HP=rgb025
+color.project.Soul=rgb025
+
+#color.project.none=red
+
+color.tagged=color255
+
+color.blocked=gray on black
+color.blocking=none
+
+# PRIORITIES
+
+uda.pri.label=Pri
+uda.pri.type=string
+uda.pri.values=H,M,,N
+
+# URGENCY
+
+urgency.uda.pri.H.coefficient=6.0
+urgency.uda.pri.M.coefficient=3.9
+urgency.uda.pri.N.coefficient=-3.0
+
+urgency.blocking.coefficient=2.0
+
+
+urgency.project.coefficient=0.0
+urgency.tags.coefficient=0
+
+
+# SYNC
+#taskd.trust=allow all
+
+#taskd.certificate=/home/sh/.task/private.certificate.pem
+#taskd.key=/home/sh/.task/private.key.pem
+#taskd.ca=/home/sh/.task/ca.cert.pem
+#taskd.server=taskwarrior.inthe.am:53589
+#taskd.credentials=inthe_am/shamotskyi/39e8d5bb-23ce-434e-95e4-8bd8cb9db1a6
+#taskd.trust=ignore hostname
+
