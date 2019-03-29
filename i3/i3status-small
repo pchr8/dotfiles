@@ -12,7 +12,7 @@ general {
 }
 
 order += "cpu_temperature 0"
-order += "volume master"
+#order += "volume master"
 #order += "disk /"
 #order += "run_watch DHCP"
 order += "run_watch VPN"
@@ -46,7 +46,7 @@ run_watch VPN {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "[%U] %a %Y-%m-%d %H:%M:%S"
 }
 
 load {
@@ -65,11 +65,10 @@ cpu_temperature 0 {
 	align = "left"
 }
 
-volume master {
-        format = "?: %volume"
-        format_muted = "?: muted (%volume)"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
-}
-
+#volume master {
+#        format = "?: %volume"
+#        format_muted = "?: muted (%volume)"
+#        device = "default"
+#        mixer = "Master"
+#        mixer_idx = 0
+#}

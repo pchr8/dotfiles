@@ -1,30 +1,9 @@
-# TODO: Clean up everything
+# i3 config file (v5)
 #
-# i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 8
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -36,101 +15,77 @@ set $ms Mod4
 set $alt Mod1
 set $ctr Mod3
 
-
-# use Mouse+Mod4 to drag floating windows to their wanted position
-floating_modifier Mod4
+# use Mouse+$ms to drag floating windows to their wanted position
+floating_modifier $ms
 
 # start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
+bindsym $ms+Return exec i3-sensible-terminal
 
 # kill focused window
-#bindsym Mod4+Shift+q kill
-bindsym Mod4+x kill
+bindsym $ms+x kill
 
 # start dmenu (a program launcher)
-#bindsym Mod4+r exec dmenu_run
-bindsym Mod4+r exec synapse
+#bindsym $ms+r exec dmenu_run
+#bindsym $ms+r exec synapse
+bindsym $ms+r exec rofi -show run
 
 # start dmenu (a program launcher)
-bindsym Mod4+n exec i3lock -i ~/s/i/lyudka.png -t
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+bindsym $ms+d exec --no-startup-id i3-dmenu-desktop
+
+# lock
+#bindsym $ms+n exec i3lock -i ~/s/bg/lyudka.png -t
+#bindsym $ms+n exec i3lock -i ~/s/bg/mss.png -t
+bindsym $ms+n exec ~/s/lock.sh
 
 # change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+bindsym $ms+$left focus left
+bindsym $ms+$down focus down
+bindsym $ms+$up focus up
+bindsym $ms+$right focus right
 
-bindsym Mod4+u focus right
-bindsym Mod4+apostrophe focus left
-
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+bindsym $ms+u focus right
+bindsym $ms+apostrophe focus left
 
 # move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+bindsym $ms+Shift+$left move left
+bindsym $ms+Shift+$down move down
+bindsym $ms+Shift+$up move up
+bindsym $ms+Shift+$right move right
 
-bindsym Mod4+Shift+u move right
-bindsym Mod4+Shift+apostrophe move left
-
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $ms+Shift+u move right
+bindsym $ms+Shift+apostrophe move left
 
 # enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
+bindsym $ms+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
-
-# split in horizontal orientation
-    bindsym Mod3+Shift+h split h
-# split in vertical orientation
-    bindsym Mod3+Shift+v split v
-
+bindsym $ms+s layout stacking
+bindsym $ms+w layout tabbed
+bindsym $ms+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym $ms+Shift+space floating toggle
+
+# split in horizontal orientation
+bindsym Mod3+Shift+h split h
+# split in vertical orientation
+bindsym Mod3+Shift+v split v
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
-
-# focus the parent container
-bindsym Mod4+a focus parent
-
-# focus the child container
-#bindsym Mod4+d focus child
+bindsym $ms+space focus mode_toggle
 
 # move the currently focused window to the scratchpad
-bindsym Mod4+Shift+minus move scratchpad
+bindsym $ms+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-#bindsym Mod4+minus [instance="scratchpad"] scratchpad show
-bindsym Mod4+minus  scratchpad show
-bindsym Mod4+t [instance="todo"] scratchpad show
-bindsym Mod4+Shift+t [instance="news"] scratchpad show
-
+bindsym $ms+minus  scratchpad show
+# bindsym $ms+t [instance="todo"] scratchpad show
 
 # reload the configuration file
-bindsym Mod4+Shift+c reload
+bindsym $ms+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $ms+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -145,12 +100,6 @@ mode "resize" {
         bindsym $up         resize shrink height 10 px or 10 ppt
         bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -158,154 +107,116 @@ mode "resize" {
 
 bindsym Mod3+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# On big screen
 bar {
     output HDMI-0
-    #status_command i3status | ~/.i3/wrapper.py 
-    status_command i3status 
+    status_command i3status --config=~/.i3/i3status
 	#workspace_buttons no
 	strip_workspace_numbers no
-
 	#mode hide
-	modifier Mod4
+	modifier $ms
 	position bottom
-
 }
 
+# On notebook screen
 bar {
     output eDP
-    status_command i3status --config=~/.i3status-small | ~/.i3/wrapper.py
-	#workspace_buttons no
-	strip_workspace_numbers yes
-#	mode hide
-	modifier Mod4
-	position bottom
+    status_command i3status --config=~/.i3/i3status-small | ~/.i3/wrapper.py
+    strip_workspace_numbers yes
+    mode hide
+    modifier $ms
+    position bottom
     output_format="i3bar"
-
 }
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-#exec i3-config-wizard
-#
+
+# On VGA (why not)
+bar {
+    output VGA-0
+    status_command i3status --config=~/.i3/i3status-small | ~/.i3/wrapper.py
+    strip_workspace_numbers yes
+    mode hide
+    modifier $ms
+    position bottom
+    output_format="i3bar"
+}
 
 #SH 
-#Startup 
 
+bindsym $ms+b border toggle
+bindsym $ms+c exec python /home/sh/s/t/focus-last.py --switch
 
-bindsym Mod4+b border toggle
-#font pango:DejaVu Sans Mono 0
-
-for_window [class="^.*"] border pixel 2
 
 # switch to workspace
-bindsym Mod4+1 workspace 1
-bindsym Mod4+2 workspace 2
-bindsym Mod4+3 workspace 3
-bindsym Mod4+4 workspace 4
-bindsym Mod4+5 workspace 5
-bindsym Mod4+6 workspace 6
-bindsym Mod4+7 workspace 7
-bindsym Mod4+8 workspace 8
-bindsym Mod4+9 workspace 9
-bindsym Mod4+0 workspace 10
+bindsym $ms+1 workspace 1
+bindsym $ms+2 workspace 2
+bindsym $ms+3 workspace 3
+bindsym $ms+4 workspace 4
+bindsym $ms+5 workspace 5
+bindsym $ms+6 workspace 6
+bindsym $ms+7 workspace 7
+bindsym $ms+8 workspace 8
+bindsym $ms+9 workspace 9
+bindsym $ms+0 workspace 10
 
 # move focused container to workspace
-bindsym Mod4+Shift+1 move container to workspace 1
-bindsym Mod4+Shift+2 move container to workspace 2
-bindsym Mod4+Shift+3 move container to workspace 3
-bindsym Mod4+Shift+4 move container to workspace 4
-bindsym Mod4+Shift+5 move container to workspace 5
-bindsym Mod4+Shift+6 move container to workspace 6
-bindsym Mod4+Shift+7 move container to workspace 7
-bindsym Mod4+Shift+8 move container to workspace 8
-bindsym Mod4+Shift+9 move container to workspace 9
-bindsym Mod4+Shift+0 move container to workspace 10
+bindsym $ms+Shift+1 move container to workspace 1
+bindsym $ms+Shift+2 move container to workspace 2
+bindsym $ms+Shift+3 move container to workspace 3
+bindsym $ms+Shift+4 move container to workspace 4
+bindsym $ms+Shift+5 move container to workspace 5
+bindsym $ms+Shift+6 move container to workspace 6
+bindsym $ms+Shift+7 move container to workspace 7
+bindsym $ms+Shift+8 move container to workspace 8
+bindsym $ms+Shift+9 move container to workspace 9
+bindsym $ms+Shift+0 move container to workspace 10
 
 #additional workspaces
-#bindsym Mod4+apostrophe workspace 11
-bindsym Mod4+comma workspace 12:ﬃ 
-bindsym Mod4+period workspace 13:<span foreground="white">♫</span>
+#bindsym $ms+apostrophe workspace 11
+bindsym $ms+comma workspace 12:ﬃ 
+bindsym $ms+period workspace 13:<span foreground="white">♫</span>
 
-bindsym Mod4+F1 workspace F1
-bindsym Mod4+Shift+F1 move container to workspace F1
+bindsym $ms+F1 workspace F1
+bindsym $ms+Shift+F1 move container to workspace F1
 
-bindsym Mod4+F2 workspace F2
-bindsym Mod4+Shift+F2 move container to workspace F2
+bindsym $ms+F2 workspace F2
+bindsym $ms+Shift+F2 move container to workspace F2
 
-bindsym Mod4+F3 workspace F3
-bindsym Mod4+Shift+F3 move container to workspace F3
+bindsym $ms+F3 workspace F3
+bindsym $ms+Shift+F3 move container to workspace F3
 
-bindsym Mod4+F4 workspace F4
-bindsym Mod4+Shift+F4 move container to workspace F4
+bindsym $ms+F4 workspace F4
+bindsym $ms+Shift+F4 move container to workspace F4
 
-bindsym Mod4+F5 workspace F5
-bindsym Mod4+Shift+F5 move container to workspace F5
+bindsym $ms+F5 workspace F5
+bindsym $ms+Shift+F5 move container to workspace F5
 
-bindsym Mod4+F6 workspace F6
-bindsym Mod4+Shift+F6 move container to workspace F6
+bindsym $ms+F6 workspace F6
+bindsym $ms+Shift+F6 move container to workspace F6
 
-bindsym Mod4+F7 workspace F7
-bindsym Mod4+Shift+F7 move container to workspace F7
+bindsym $ms+F7 workspace F7
+bindsym $ms+Shift+F7 move container to workspace F7
 
-bindsym Mod4+F8 workspace F8
-bindsym Mod4+Shift+F8 move container to workspace F8
+bindsym $ms+F8 workspace F8
+bindsym $ms+Shift+F8 move container to workspace F8
 
-bindsym Mod4+F9 workspace F9
-bindsym Mod4+Shift+F9 move container to workspace F9
+bindsym $ms+F9 workspace F9
+bindsym $ms+Shift+F9 move container to workspace F9
 
-# bindsym Mod4+Shift+apostrophe move container to workspace 11
-bindsym Mod4+Shift+comma move container to workspace 12:ﬃ
-bindsym Mod4+Shift+period move container to workspace 13:<span foreground="white">♫</span>
+# bindsym $ms+Shift+apostrophe move container to workspace 11
+bindsym $ms+Shift+comma move container to workspace 12:ﬃ
+bindsym $ms+Shift+period move container to workspace 13:<span foreground="white">♫</span>
 
 #volume
 
-bindsym Mod1+r exec amixer set Master 5%+ && amixer get Master | egrep -o '([0-9]+)%' | egrep -o '[0-9]+' | xargs -0 volnoti-show
-bindsym Mod1+c exec amixer set Master 5%- && amixer get Master | egrep -o '([0-9]+)%' | egrep -o '[0-9]+' | xargs -0 volnoti-show
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym Mod1+r exec amixer set Master 5%+ -D pulse && amixer get Master -D pulse | egrep -o '([0-9]+)%' | egrep -o '[0-9]+' | xargs -0 volnoti-show
+bindsym Mod1+c exec amixer set Master 5%- -D pulse && amixer get Master -D pulse | egrep -o '([0-9]+)%' | egrep -o '[0-9]+' | xargs -0 volnoti-show
+#bindsym XF86AudioMute exec amixer -q set Master toggle
 
-#autostart
-
-exec ~/s/startup.sh
-
-mode $mode-resize {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing h will shrink the window’s width.
-        # Pressing l will grow the window’s width.
-        # Pressing k will shrink the window’s height.
-        # Pressing j will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
 
 # keybinding to do all startup stuff
 
-bindsym Mod4+Shift+g --release exec bash ~/s/startup.sh
-bindsym Mod4+g --release exec xmodmap ~/s/mod4
-
-
-#Pedal
-
+bindsym $ms+Shift+g --release exec bash ~/s/startup.sh
+bindsym $ms+g --release exec xmodmap ~/s/mod4
 
 # Running programs
     bindsym Mod3+a exec ~/s/p/firefox/firefox
@@ -320,22 +231,15 @@ bindsym Mod4+g --release exec xmodmap ~/s/mod4
     #bindsym Mod3+n exec --no-startup-id i3-msg "exec urxvt -name news -hold -e  newsbeuter"
 
 # Timers
-    bindsym Mod3+n exec "utimer -c 15m > ~/s/sounds/outpomo && mpg123 -q ~/s/sounds/tib.mp3"
-    bindsym Mod3+s exec "utimer -c 5m > ~/s/sounds/outpause && mpg123 -q ~/s/sounds/cl.mp3"
-    bindsym Mod3+k exec "killall mpg123"
+        bindsym Mod3+n exec ": > ~/s/sounds/outpomo && utimer -c 15m > ~/s/sounds/outpomo && mpg123 ~/s/sounds/tib.mp3"
+        bindsym Mod3+Shift+s exec ": > ~/s/sounds/outpause && utimer -c 5m > ~/s/sounds/outpause && mpg123 ~/s/sounds/cl.mp3"
+        bindsym Mod3+k exec "killall mpg123"
 
-# Service programs
-    bindsym Mod3+p exec pavucontrol
-    #bindsym Mod3+Shift+l exec i3lock -i ~/I/shashlik.png -t
 # Screenshots
         bindsym Mod3+s --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
-        #bindsym Print --release exec scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
-        #bindsym Print --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
         bindsym Print --release exec scrot 
 
-
-
-#Moving 
+# Moving 
         bindsym Mod3+$left workspace prev
         bindsym Mod3+$right workspace next
 
@@ -343,7 +247,6 @@ bindsym Mod4+g --release exec xmodmap ~/s/mod4
 
         for_window [class="(?i)pavucontrol"] floating enable, move position mouse
         for_window [class="(?i)pavucontrol" instance="pavucontrol-bar"] move down 34 px
-
         for_window [class="nomacs"] floating enable, move position mouse
 
 #https://github.com/Airblader/dotfiles-manjaro/blob/master/.i3/config
@@ -359,7 +262,167 @@ bindsym Mod4+g --release exec xmodmap ~/s/mod4
         assign [class="Conky" title="whatever"] workspace 1
 
         bindsym uring exec xdotool click 1
-bindsym Mod1+Mod4+m move workspace to output left
+        bindsym Mod1+$ms+m move workspace to output left
 
-# Local fullscreen
-bindsym $mod4+$mod3+f focus parent; fullscreen; focus child
+        #no header by default
+        for_window [class="^.*"] border pixel 1
+        for_window [class="^.*"] border pixel 0
+
+# Work-play mode
+# play mode is with gaps, work is without them
+
+# work
+bindsym Mod3+w exec feh --bg-scale ~/s/bg/darkwood.jpg; gaps inner all minus 10
+bindsym Mod3+Shift+w gaps inner current minus 10
+
+# play
+bindsym Mod3+p exec feh --bg-scale ~/s/bg/wallpaper.jpg; gaps inner all plus 10
+bindsym Mod3+Shift+p gaps inner current plus 10
+bindsym Mod3+Shift+f gaps inner current set 0
+
+hide_edge_borders both #<none|vertical|horizontal|both>
+
+
+# play/pause toggle
+#bindsym Mod3+Shift+XF86AudioPlay exec cmus-remote -u
+# next
+#bindsym Mod3+XF86AudioNext exec cmus-remote -r
+# prev
+#bindsym Mod3+Shift+XF86AudioPrev exec cmus-remote -n
+
+#autostart
+
+exec ~/s/startup.sh
+
+
+# Tesing i3-gaps
+#
+#gaps outer 3
+gaps inner 10
+
+# Service programs
+#    bindsym Mod3+p exec pavucontrol
+#bindsym Print --release exec scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
+#bindsym Print --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
+
+set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_horiz Horizontal Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_verti Vertical Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_top Top Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
+bindsym Mod3+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym h      mode "$mode_gaps_horiz"
+        bindsym v      mode "$mode_gaps_verti"
+        bindsym t      mode "$mode_gaps_top"
+        bindsym r      mode "$mode_gaps_right"
+        bindsym b      mode "$mode_gaps_bottom"
+        bindsym l      mode "$mode_gaps_left"
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_horiz" {
+        bindsym plus  gaps horizontal current plus 5
+        bindsym minus gaps horizontal current minus 5
+        bindsym 0     gaps horizontal current set 0
+
+        bindsym Shift+plus  gaps horizontal all plus 5
+        bindsym Shift+minus gaps horizontal all minus 5
+        bindsym Shift+0     gaps horizontal all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_verti" {
+        bindsym plus  gaps vertical current plus 5
+        bindsym minus gaps vertical current minus 5
+        bindsym 0     gaps vertical current set 0
+
+        bindsym Shift+plus  gaps vertical all plus 5
+        bindsym Shift+minus gaps vertical all minus 5
+        bindsym Shift+0     gaps vertical all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_top" {
+        bindsym plus  gaps top current plus 5
+        bindsym minus gaps top current minus 5
+        bindsym 0     gaps top current set 0
+
+        bindsym Shift+plus  gaps top all plus 5
+        bindsym Shift+minus gaps top all minus 5
+        bindsym Shift+0     gaps top all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_right" {
+        bindsym plus  gaps right current plus 5
+        bindsym minus gaps right current minus 5
+        bindsym 0     gaps right current set 0
+
+        bindsym Shift+plus  gaps right all plus 5
+        bindsym Shift+minus gaps right all minus 5
+        bindsym Shift+0     gaps right all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_bottom" {
+        bindsym plus  gaps bottom current plus 5
+        bindsym minus gaps bottom current minus 5
+        bindsym 0     gaps bottom current set 0
+
+        bindsym Shift+plus  gaps bottom all plus 5
+        bindsym Shift+minus gaps bottom all minus 5
+        bindsym Shift+0     gaps bottom all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_left" {
+        bindsym plus  gaps left current plus 5
+        bindsym minus gaps left current minus 5
+        bindsym 0     gaps left current set 0
+
+        bindsym Shift+plus  gaps left all plus 5
+        bindsym Shift+minus gaps left all minus 5
+        bindsym Shift+0     gaps left all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}

@@ -1,0 +1,26 @@
+{
+  "settingsVersion": "1.64",
+  "exclusionRules": [
+    {
+      "pattern": "*localhost:8888/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap L Vomnibar.activateEditUrl\nmap  l scrollLeft\nmap  h scrollRight\n\nmap  B goBack\n\nmap  o LinkHints.activateMode\nmap  a LinkHints.activateModeToOpenInNewTab\nmap  A LinkHints.activateModeWithQueue\n\nmap  <c-p> togglePinTab\nmap  <c-к> togglePinTab\n\n\n\nmap  , showHelp\nmap  о scrollDown\nmap  л scrollUp\nmap  р scrollLeft\nmap  д scrollRight\nmap  пп scrollToTop\nmap  П scrollToBottom\nmap  яР scrollToLeft\nmap  яД scrollToRight\nmap  <с-у> scrollDown\nmap  <с-н> scrollUp\n\nmap  в scrollPageDown\nmap  г scrollPageUp\nmap  к reload\nmap  пы toggleViewSource\n\nmap  ш enterInsertMode\n\nmap  Р goBack\nmap  Д goForward\nmap  пг goUp\nmap  пГ goToRoot\n\nmap  пш focusInput\n\nmap  а LinkHints.activateMode\nmap  А LinkHints.activateModeToOpenInNewTab\nmap  <a-а> LinkHints.activateModeWithQueue\n\nmap  . enterFindMode\nmap  т performFind\nmap  Т performBackwardsFind\n\nmap  хх goPrevious\nmap  ъъ goNext\n\nmap  нн copyCurrentUrl\nmap  на LinkHints.activateModeToCopyLinkUrl\n\nmap  з openCopiedUrlInCurrentTab\nmap  З openCopiedUrlInNewTab\n\nmap  Л nextTab\nmap  О previousTab\nmap  пе nextTab\nmap  пЕ previousTab\nmap  п0 firstTab\nmap  п; lastTab\n\n\nmap  ц moveTabToNewWindow\nmap  е createTab\nmap  не duplicateTab\nmap  ч removeTab\nmap  Ч restoreTab\n\nmap  щ Vomnibar.activate\nmap  Щ Vomnibar.activateInNewTab\n\nmap  Е Vomnibar.activateTabSelection\n\nmap  и Vomnibar.activateBookmarks\nmap  И Vomnibar.activateBookmarksInNewTab\n\nmap  па nextFrame\n\nmap  ь Marks.activateCreateMode\nmap  ё Marks.activateGotoMode\n\nmap  <a-з> togglePinTab\n\nmap  ББ moveTabLeft\nmap  ЮЮ moveTabRight\n\nmap  м enterVisualMode\nmap  М enterVisualLineMode",
+  "linkHintCharacters": "aoeukjqp",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\ng: https://www.google.com/search?q=%s Google\nl: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\nd: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

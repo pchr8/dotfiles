@@ -69,28 +69,29 @@ if __name__ == '__main__':
 
         j = json.loads(line)
 
-        # Files with the output of utimer:
+#       # Files with the output of utimer:
         tfile="/home/sh/s/sounds/outbash"
         tfile2="/home/sh/s/sounds/outpomo"
         tfile3="/home/sh/s/sounds/outpause"
 
         def rtime(tfile, color):
-            with open(tfile, "r") as f:
-                # last line of the file
-                try:
-                    t=f.readlines()[-1]
-                except IndexError:
-                    t="O"
+            try:
+                with open(tfile, "r") as f:
+                    # last line of the file
+                    try:
+                        t=f.readlines()[-1]
+                    except IndexError:
+                        t="O"
+            except IOError:
+                t="O"
             # hack
             # Utime seems to add a \n(^M?); at the end 
             # We use it as a way to check that the timer has stopped
+            # When it stops, a \n is added.
             if "\n" not in t:
-                to=t.split("ing:")[1]
-                j.insert(0, {'full_text': '%s' % to, 'color':'%s'%color})
-            else:
-                to='0'
-                #j.insert(0, {'full_text': '%s' % to, 'color':'%s'%color})
-            return to
+                if t!="O":
+                    to=t.split("ing:")[1]
+                    j.insert(0, {'full_text': '%s' % to, 'color':'%s'%color})
 
         tcolor1="#FF0F02" 
         tcolor2="#FFFFFF" 
@@ -104,6 +105,14 @@ if __name__ == '__main__':
         # CHANGE THIS LINE TO INSERT SOMETHING ELSE
         #j.insert(0, {'full_text' : '%s' % get_governor(), 'name' : 'gov'})
 
+        # Sun 17 Feb 2019 12:39:39 PM CET 
+        # Adding currently active TW command
+
+        bashCommand = "task a | sed '4!d'"
+        bashOutput = subprocess.check_output(['bash','-c', bashCommand]).decode('utf-8').strip('\n')
+
+        j.insert(0, {'full_text' : '%s' % bashOutput, 'name' : 'gov'})
 
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
+
