@@ -28,7 +28,7 @@ uda.est.default=PT1H
 
 report.next.columns=id,start.age,depends,est,project,tags,sprint,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.next.labels=D,Active,Deps,E,Project,Tag,S,Recur,S,Due,Until,Description,Urg
-report.next.filter=-s status::pending -MOD
+report.next.filter=-s status::pending 
 
 #Someday
 report.sd.columns=id,start.age,depends,est,project,tags,sprint,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
@@ -37,8 +37,8 @@ report.sd.filter=status:pending sprint:s
 
 #Mod -- for repetitive tasks
 report.m.description='MOD'
-report.m.columns=id,project,tags,pri,est,description,urgency
-report.m.labels=ID,Project,T,P,E,Description,U
+report.m.columns=id,project,tags,sprint,pri,est,description,urgency
+report.m.labels=ID,Project,T,S,P,E,Description,U
 report.m.sort=urgency-
 report.m.filter=status:pending +MOD 
 
@@ -106,6 +106,8 @@ color.tag.F=color239
 # "One thing I do today"
 color.tag.O=underline 
 color.tag.A=underline 
+color.tag.next=underline
+color.tag.MOD=green
 
 # Projects
 color.project.HS=rgb015

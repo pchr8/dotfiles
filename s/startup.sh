@@ -46,4 +46,5 @@ else
 	volnoti&
 fi
 
+zenity --info --title="Run ss" --text="Run SS!"
 

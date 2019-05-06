@@ -6,8 +6,9 @@ https://sivers.org/en.atom "productivity" 0 "main"
 http://www.stevepavlina.com/feed "productivity" 0 "main"
 http://slatestarcodex.com/feed/ "rationality" 0 "main"
 https://www.reddit.com/r/YouShouldKnow/top/.rss?sort=top&t=month "reddit" "main"
-
+http://blog.echen.me/ "ML", "IT"
 https://karpathy.github.io/feed.xml "RSS/statistics" "main"
+
 https://distill.pub/rss.xml "Maschinelles Lernen" "main"
 https://www.theatlantic.com/feed/best-of/ "news" "main"
 https://www.reddit.com/r/technology/top/.rss?sort=top&t=month "reddit" "it" "main"
@@ -23,6 +24,10 @@ http://www.thesimpledollar.com/category/money/getting-started/feed/ "f"
 https://feeds.feedburner.com/mrmoneymustache "f"
 http://www.iwillteachyoutoberich.com/feed/ "f"
 https://fs.blog/feed/ "main"
+https://blog.wesleyac.com/feed.xml "main", 'blog', 'it'
+https://joy.recurse.com/ "IT", "Programs"
+
+http://feeds.feedburner.com/blogspot/tsUPj 'fun' 'blog'
 
 https://feeds.feedburner.com/MeltingAsphalt "rationality" 0 "main"
 https://aellagirl.com/feed/ "random" "main"
@@ -37,11 +42,15 @@ https://www.reddit.com/r/LifeProTips/top/.rss?sort=top&t=month "reddit" "main"
 https://www.reddit.com/r/INTP/.rss?sort=top&t=month "reddit" "main"
 https://www.reddit.com/r/dating_advice/top/.rss?sort=top&t=month "reddit" "main"
 
+https://www.discoverdev.io/rss.xml "IT"
 http://www.thesecretknots.com/feed/ "RSS/humor" "main"
 http://pbfcomics.com/feed/feed.xml "RSS/humor" "main"
 http://www.smbc-comics.com/rss.php "RSS/humor" "main"
 http://xkcd.com/atom.xml "RSS/humor" "main"
 http://www.pchr8.net/blog/feed/ "~pchr8" "main"
+
+# Blogs that don't post often
+https://didoesdigital.com/blog/index.xml "IT"
 
 #INFOSEC
 #https://krebsonsecurity.com/feed/ "infosec" 0

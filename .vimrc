@@ -291,3 +291,7 @@ imap <F2>d <esc>:put =strftime('%c')<cr>kJA
 imap <F12>d <esc>:put =strftime('%c')<cr>kJA
 " Todo: make the above better and work also in the middle of a line
 " todo: Jekkyll header for the day
+
+" Again temporary ones
+abbr sop System.out.println("");<esc>2hi
+abbr sos System.out.println();<esc>1hi

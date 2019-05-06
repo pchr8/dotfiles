@@ -80,7 +80,7 @@ bindsym $ms+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $ms+minus  scratchpad show
-# bindsym $ms+t [instance="todo"] scratchpad show
+ bindsym $ms+p [instance="todo"] scratchpad show
 
 # reload the configuration file
 bindsym $ms+Shift+c reload
@@ -110,7 +110,7 @@ bindsym Mod3+r mode "resize"
 # On big screen
 bar {
     output HDMI-0
-    status_command i3status --config=~/.i3/i3status
+    status_command i3status --config=~/.i3/i3status | ~/.i3/wrapper.py
 	#workspace_buttons no
 	strip_workspace_numbers no
 	#mode hide
@@ -231,9 +231,9 @@ bindsym $ms+g --release exec xmodmap ~/s/mod4
     #bindsym Mod3+n exec --no-startup-id i3-msg "exec urxvt -name news -hold -e  newsbeuter"
 
 # Timers
-        bindsym Mod3+n exec ": > ~/s/sounds/outpomo && utimer -c 15m > ~/s/sounds/outpomo && mpg123 ~/s/sounds/tib.mp3"
-        bindsym Mod3+Shift+s exec ": > ~/s/sounds/outpause && utimer -c 5m > ~/s/sounds/outpause && mpg123 ~/s/sounds/cl.mp3"
-        bindsym Mod3+k exec "killall mpg123"
+    bindsym Mod3+n exec ": > ~/s/sounds/outpomo && utimer -c 15m > ~/s/sounds/outpomo && mpg123 ~/s/sounds/tib.mp3"
+    bindsym Mod3+Shift+s exec ": > ~/s/sounds/outpause && utimer -c 5m > ~/s/sounds/outpause && mpg123 ~/s/sounds/cl.mp3"
+    bindsym Mod3+k exec "killall mpg123"
 
 # Screenshots
         bindsym Mod3+s --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
@@ -265,8 +265,8 @@ bindsym $ms+g --release exec xmodmap ~/s/mod4
         bindsym Mod1+$ms+m move workspace to output left
 
         #no header by default
-        for_window [class="^.*"] border pixel 1
         for_window [class="^.*"] border pixel 0
+        for_window [class="^.*"] border pixel 1
 
 # Work-play mode
 # play mode is with gaps, work is without them
@@ -304,7 +304,8 @@ gaps inner 10
 #    bindsym Mod3+p exec pavucontrol
 #bindsym Print --release exec scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
 #bindsym Print --release exec scrot -s -e 'mv $f ~/s/screenshots && nomacs ~/s/screenshots/$f'
-
+#
+#
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -426,3 +427,5 @@ mode "$mode_gaps_left" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
+
+
