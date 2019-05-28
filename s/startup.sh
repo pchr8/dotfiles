@@ -37,7 +37,7 @@ if pgrep -x "redshift" > /dev/null
 then
         echo "redshift already running"
 else
-	redshift -l 51.34:12.3877 &
+    redshift -l 51.34:12.38 -t 6500:3000 &
 fi
 if pgrep -x "volnoti" > /dev/null
 then
