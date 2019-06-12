@@ -20,8 +20,9 @@ max-items 200
 
 # external programs 
 #browser2 vimb
-#browser ~/s/p/firefox/firefox
-browser firefox
+#browser ~/s/p/firefox/firefox/firefox
+browser qutebrowser
+#browser firefox
 #
 # display
 feedlist-format "%S%n %11u %t"

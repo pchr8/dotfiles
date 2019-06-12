@@ -78,8 +78,8 @@ map <leader>l :wincmd l<CR>
 
 " For the two languages
 " Ctrl+^ to switch
- map U :set keymap=ukrainian-dvorak<CR>
- map R :set keymap=russian-dvorak<CR>
+" map U :set keymap=ukrainian-dvorak<CR>
+" map R :set keymap=russian-dvorak<CR>
 
 " https://stackoverflow.com/questions/9166328/how-to-copy-selected-lines-to-clipboard-in-vim
 " To share the clipboard between different vim instances
