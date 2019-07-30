@@ -164,3 +164,8 @@ urgency.tags.coefficient=0
 #taskd.credentials=inthe_am/shamotskyi/39e8d5bb-23ce-434e-95e4-8bd8cb9db1a6
 #taskd.trust=ignore hostname
 
+taskd.server=freecinc.com:53589
+taskd.key=\/home\/sh\/.task\/freecinc_7f3fb4c5.key.pem
+taskd.certificate=\/home\/sh\/.task\/freecinc_7f3fb4c5.cert.pem
+taskd.ca=\/home\/sh\/.task\/freecinc_7f3fb4c5.ca.pem
+taskd.credentials=FreeCinc\/freecinc_7f3fb4c5\/8ecf3fe2-5026-43b4-88c4-5a87dd36744a
