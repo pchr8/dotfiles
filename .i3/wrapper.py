@@ -108,10 +108,35 @@ if __name__ == '__main__':
         # Sun 17 Feb 2019 12:39:39 PM CET 
         # Adding currently active TW command
 
+
         bashCommand = "task a | sed '4!d'"
         bashOutput = subprocess.check_output(['bash','-c', bashCommand]).decode('utf-8').strip('\n')
 
         j.insert(0, {'full_text' : '%s' % bashOutput, 'name' : 'gov'})
+
+        # work/play make it clearer
+        # Wed 25 Sep 2019 09:53:31 AM CEST
+
+        bashCommand2 = "date +%R" #returns %H:%M in 24h-format
+        bashOutput2 = subprocess.check_output(['bash','-c', bashCommand2]).decode('utf-8').strip('\n')
+        time=bashOutput2.split(":")
+        hour=int(time[0])
+        minute=int(time[1])
+
+        #if hour in {9, 12, 15, 18, 21}:
+        if hour in {8, 11, 14, 17, 20}:
+            if minute>5 and minute<35:
+                wp="P"
+            else:
+                wp="W"
+        else:
+            if minute<5 or (minute>30 and minute<35):
+                wp="P"
+            else:
+                wp="W"
+
+        j.insert(0, {'full_text' : '%s' % wp, 'name' : 'wp'})
+
 
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))

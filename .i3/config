@@ -22,7 +22,7 @@ floating_modifier $ms
 bindsym $ms+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $ms+x kill
+bindsym $ms+w kill
 
 # start dmenu (a program launcher)
 #bindsym $ms+r exec dmenu_run
@@ -60,7 +60,7 @@ bindsym $ms+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $ms+s layout stacking
-bindsym $ms+w layout tabbed
+bindsym $ms+t layout tabbed
 bindsym $ms+e layout toggle split
 
 # toggle tiling / floating

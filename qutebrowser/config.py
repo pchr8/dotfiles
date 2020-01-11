@@ -1,19 +1,20 @@
-# https://github.com/qutebrowser/qutebrowser/blob/master/doc/help/configuring.asciidoc
-
 config.bind(',l', 'set tabs.position left')
 config.bind(',t', 'set tabs.position top')
 
 config.bind(",j", "set content.javascript.enabled true")
 config.bind(",J", "set content.javascript.enabled false")
 
-config.bind(",t", "set tabs.show multiple")
-config.bind(",T", "set tabs.show switching")
+config.bind(",T", "set tabs.show multiple")
+config.bind(",n", "set tabs.show switching")
 config.bind(",h", "set tabs.show never")
 
-c.url.searchengines = {'DEFAULT': 'https://startpage.com/do/search?query={}', 
+config.bind(",o", "spawn --userscript outline.sh")
+config.bind(",m", "spawn mpv {url} --vid no")
+
+c.url.searchengines = {'ss': 'https://startpage.com/do/search?query={}', 
         'g': 'https://google.com/search?q={}', 
         'c': 'http://dict.cc/?s={}', 
-        'd': 'https://duckduckgo.com/?q={}', 
+        'DEFAULT': 'https://duckduckgo.com/?q={}', 
         'd': 'https://en.wiktionary.org/wiki/Special:Search?search={}',
         'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
         'y': 'https://youtube.com/results?search_query={}'
@@ -22,7 +23,12 @@ c.url.searchengines = {'DEFAULT': 'https://startpage.com/do/search?query={}',
 mono = '10pt monospace'
 small_mono = '9pt monospace'
 
-c.hints.mode = 'number'
+c.hints.mode = 'letter'
+c.hints.chars = 'aoeuhtns'
+
+c.auto_save.session = True
+
+# Numbers to tabs
 
 config.bind('1', 'tab-focus 1')
 config.bind('2', 'tab-focus 2')
@@ -44,3 +50,15 @@ config.bind('<Alt-7>', 'tab-focus 17')
 config.bind('<Alt-8>', 'tab-focus 18')
 config.bind('<Alt-9>', 'tab-focus 19')
 config.bind('<Alt-0>', 'tab-focus -1')
+
+config.bind('A', 'hint all tab-bg')
+
+config.bind('a', 'set-cmd-text -s :open -t')
+
+config.bind('e', 'open-editor')
+
+config.bind('>', 'tab-move +')
+config.bind('<', 'tab-move -')
+
+
+config.bind('<Ctrl-P>', 'tab-pin;; tab-move 1')
