@@ -40,7 +40,7 @@ Plugin 'nathangrigg/vim-beancount'
 Plugin 'mileszs/ack.vim'
 
 "Bundle 'vim-ruby/vim-ruby'
-"Plugin 'vim-scripts/CycleColor'
+Plugin 'vim-scripts/CycleColor'
 "Bundle 'bilalq/lite-dfm'
 "Plugin 'junegunn/goyo.vim'
 "Plugin 'tpope/vim-fugitive'
@@ -53,6 +53,9 @@ Plugin 'tomtom/tcomment_vim'
 "Plugin 'junegunn/limelight.vim'
 
 Plugin 'tpope/vim-surround'
+
+Plugin 'diffchar.vim'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -86,7 +89,9 @@ map <leader>l :wincmd l<CR>
 set clipboard=unnamedplus
 set guioptions+=h "make it scroll lower than the visible lines
 
-colorscheme slate
+colorscheme darkblue
+colorscheme default
+colorscheme elflord
 
 set foldmethod=marker
 set foldmarker={{,}}
@@ -248,7 +253,7 @@ highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
 set list
-set listchars=tab:!·,trail:·
+set listchars=tab:!Â·,trail:Â·
 
 "========== RANDOM ==========
 " For illustration purposes
@@ -273,7 +278,7 @@ abbr psvm public static void main(String[] args){<CR>}<esc>O
 " TEMPORARY MAPPINGS FOR PRAKTIKUMSBERICHT
 
 "abbr IEC Israel Electric Corporation
-"abbr SZ Stromzähler
+"abbr SZ StromzÃ¤hler
 "abbr LF Lastprognose
 "abbr ML Maschinelles Lernen
 "abbr DB Datenbank
@@ -296,3 +301,27 @@ imap <F12>d <esc>:put =strftime('%c')<cr>kJA
 " Again temporary ones
 abbr sop System.out.println("");<esc>2hi
 abbr sos System.out.println();<esc>1hi
+
+map <C-h> dGp''
+"
+" let @H = 'ggýcýbiýcýb{{B|j0i|ji|jkbji|o}};q' " For the 5 lines
+" let @L = 'ji{{$kb%kb#set:\k=kDo|+sep=,}}' " For the tags
+" let @C = 'i[[C;tjkbkbkbategory: A]];q' " For each individual category
+" let @F = 'jjVG:norm! @C\' "Apply that to all lines till the end
+" let @d = '@H@L@F'
+" let @q = 'Abbbbbbi|ükb:%s/=/{{=}}/ge'
+
+" Summed up:
+let @C = 'i[[C;tjkbkbkbategory: A]];q' " For each individual category
+"let @H = 'Abbbbbbi|ükb:%s/=/{{=}}/geggýcýbiýcýb{{B|j0i|ji|jkbji|o}};qji{{$kb%kb#set:k=kDo|+sep=,}}jjVG:norm! @C:x'
+let @H = 'Abbbbbbi|ükb:%s/=/{{=}}/geggýcýbiýcýb{{B|j0i|ji|jkbji|o}};qji{{$kb%kb#set:k=kDo|+sep=,}}jjVG:norm! @C' " Without closing at the end
+" let @d = '@H@L@F'
+"
+
+fun! SetQuestions()
+    syn match mys /^\s*+.*$/
+    hi link mys Keyword
+endfu
+autocmd filetype markdown :call SetQuestions()
+
+let @R = 'viw"oyi[^A]Go[^"opA]: '

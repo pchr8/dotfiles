@@ -13,32 +13,16 @@ comma cell-select 6
 period cell-select 10
 p cell-select 14
 
-Cyrillic_shorti cell-select 2
-Cyrillic_tse cell-select 6
-Cyrillic_u cell-select 10
-Cyrillic_ka cell-select 14
-
 # Lower two rows
 a cell-select 3
 o cell-select 7
 e cell-select 11
 u cell-select 15
 
-Cyrillic_ef cell-select 3
-Cyrillic_yeru cell-select 7
-Cyrillic_ve cell-select 11
-Cyrillic_a cell-select 15
-
 semicolon cell-select 4
 q cell-select 8
 j cell-select 12
 k cell-select 16
-
-Cyrillic_ya cell-select 4
-Cyrillic_che cell-select 8
-Cyrillic_es cell-select 12
-Cyrillic_em cell-select 16
-
 
 # CUTTING TO INTERSECTIONS 
 

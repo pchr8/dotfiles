@@ -6,7 +6,8 @@
 urgency.uda.sprint.c.coefficient=4
 urgency.user.project.s.coefficient=100
 urgency.user.tag.O.coefficient=10
-urgency.user.tag.A.coefficient=3
+urgency.user.tag.A.coefficient=5
+urgency.user.tag.W.coefficient=3
 
 
 #############################################################################
@@ -33,14 +34,14 @@ report.next.filter=-s status::pending
 #Someday
 report.sd.columns=id,start.age,depends,est,project,tags,sprint,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.sd.labels=D,Active,Deps,E,Project,Tag,S,Recur,S,Due,Until,Description,Urg
-report.sd.filter=status:pending sprint:s 
+report.sd.filter=status:pending sprint:s sprint.isnt:srv
 
 #Mod -- for repetitive tasks
 report.m.description='MOD'
 report.m.columns=id,project,tags,sprint,pri,est,description,urgency
 report.m.labels=ID,Project,T,S,P,E,Description,U
 report.m.sort=urgency-
-report.m.filter=status:pending +MOD 
+report.m.filter=status:pending +MOD
 
 #srv -- for continuously needed tasks
 report.srv.description='srv'
@@ -55,7 +56,7 @@ report.s.columns=id,project,tags,pri,est,due.relative,description,urgency
 report.s.labels=ID,Project,T,P,E,D,Description,U
 #report.s.sort=due+
 report.s.sort=urgency-
-report.s.filter=status:pending  -s
+report.s.filter=status:pending  -s 
 
 # Currently active name
 report.a.description='Currently active name'
@@ -76,7 +77,7 @@ data.location=~/.task
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
 #include /usr/share/doc/task/rc/light-256.theme
-include /usr/share/doc/task/rc/dark-16.theme
+#include /usr/share/doc/task/rc/dark-16.theme
 #include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/dark-red-256.theme
 #include /usr/share/doc/task/rc/dark-green-256.theme
@@ -165,7 +166,7 @@ urgency.tags.coefficient=0
 #taskd.trust=ignore hostname
 
 taskd.server=freecinc.com:53589
-taskd.key=\/home\/sh\/.task\/freecinc_7f3fb4c5.key.pem
-taskd.certificate=\/home\/sh\/.task\/freecinc_7f3fb4c5.cert.pem
-taskd.ca=\/home\/sh\/.task\/freecinc_7f3fb4c5.ca.pem
+taskd.key=\/home\/shamotskyi\/.task\/freecinc_7f3fb4c5.key.pem
+taskd.certificate=\/home\/shamotskyi\/.task\/freecinc_7f3fb4c5.cert.pem
+taskd.ca=\/home\/shamotskyi\/.task\/freecinc_7f3fb4c5.ca.pem
 taskd.credentials=FreeCinc\/freecinc_7f3fb4c5\/8ecf3fe2-5026-43b4-88c4-5a87dd36744a
