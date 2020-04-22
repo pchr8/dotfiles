@@ -1,0 +1,42 @@
+#! /bin/sh
+
+sxhkd -m 1 &
+
+bspc monitor HDMI-0 -d 1 2 3
+bspc monitor eDP -d 4 5 6 7 8 9 0 a b c
+
+bspc config border_width         2
+bspc config window_gap           5
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+#bspc config top_padding          10
+
+# Set padding per desktop 
+#bspc config -d II top_padding    0
+
+
+bspc config single_monocle true # smart borders
+bspc config pointer_follows_monitor true # brings pointer to focused monitor (see workspaces)
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a Firefox desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+#ignore_ewmh_fullscreen=all
+
+# Scratchpad
+#bspc rule -a scratchpad sticky=on state=floating hidden=on
+#st -c scratchpad -e ~/s/scratch &
+
+#urxvt -name scratchterm &
+st -c scratchterm &
+bspc rule -a scratchterm sticky=on state=floating hidden=on
+
+$HOME/.config/polybar/launch.sh
+$HOME/s/startup.sh
+sxhkd -m 1

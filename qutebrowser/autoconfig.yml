@@ -6,5 +6,23 @@
 
 config_version: 2
 settings:
+  content.headers.user_agent:
+    global: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+      Gecko) Chrome/79.0.3945.117 Safari/537.36
+  content.host_blocking.enabled:
+    global: true
+  content.host_blocking.whitelist:
+    global:
+    - amazon.de
+  tabs.background:
+    global: true
+  tabs.favicons.scale:
+    global: 1.0
+  tabs.indicator.width:
+    global: 2
   tabs.position:
-    global: top
+    global: left
+  tabs.title.format:
+    global: '{index}:{current_title}'
+  tabs.width:
+    global: 20%

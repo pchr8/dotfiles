@@ -1,0 +1,12 @@
+clear Lock
+clear mod4
+clear Control
+
+keycode 66 = Control_L
+keycode 37 = Hyper_L
+keycode 94 = Shift_L
+
+add Control = Control_R Control_L
+add mod4 = Super_L Super_R
+add mod3 = Hyper_L
+

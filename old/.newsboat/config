@@ -1,0 +1,68 @@
+always-display-description true
+auto-reload yes
+download-full-page yes
+mark-as-read-on-hover yes
+refresh-on-startup yes
+
+save-path ~/p/a/nb
+
+# reloading
+reload-threads 4
+reload-only-visible-feeds no
+download-retries 4
+
+# notification
+notify-screen yes
+notify-xterm yes
+
+# storage
+max-items 200
+
+# external programs 
+#browser2 vimb
+#browser ~/s/p/firefox/firefox/firefox
+browser qutebrowser
+#browser firefox
+#
+# display
+feedlist-format "%S%n %11u %t"
+articlelist-format "%D %f %?T?;%-17T; ?%t"
+datetime-format %m-%d
+color listnormal white black
+color listfocus black white
+#color info black white
+#color article white black
+
+# interface
+bind-key k up
+bind-key j down
+#bind-key K open-in-browser2-and-mark-read
+#bind-key o open-in-browser-and-mark-read
+#
+## Useragent
+#user-agent "Liferea/1.4.14 (Linux; en_US.UTF8; http://liferea.sf.net/)"
+#
+#bookmark-cmd "/home/sh/s/open-in-vimb.sh"
+#
+##show-read-feeds no
+#
+## Dark solarized color scheme for newsbeuter, based on
+## Ethan Schoonover's Solarized.
+##
+## In order to use this color scheme, you must first configure
+## your terminal emulator to use the Solarized palette.
+## See <http://ethanschoonover.com/solarized/> for more information.
+#
+##   color background   default   default
+##   color listnormal   default   default
+##   color listfocus    black     yellow
+##   color info         default   black
+##   color article      default   default
+#
+## highlights
+##   highlight article "^(Title):.*$" blue default
+##   highlight article "https?://[^ ]+" red default
+##   highlight article "\\[image\\ [0-9]+\\]" green default
+
+bind-key g home
+bind-key G end

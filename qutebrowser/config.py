@@ -1,4 +1,7 @@
+#mG https://github.com/qutebrowser/qutebrowser/blob/master/doc/help/configuring.asciidoc
+
 config.bind(',l', 'set tabs.position left')
+config.bind(',r', 'set tabs.position right')
 config.bind(',t', 'set tabs.position top')
 
 config.bind(",j", "set content.javascript.enabled true")
@@ -13,6 +16,7 @@ config.bind(",m", "spawn mpv {url} --vid no")
 
 c.url.searchengines = {'ss': 'https://startpage.com/do/search?query={}', 
         'g': 'https://google.com/search?q={}', 
+        'G': 'https://google.com/search?btnI=1&q={}', 
         'c': 'http://dict.cc/?s={}', 
         'DEFAULT': 'https://duckduckgo.com/?q={}', 
         'd': 'https://en.wiktionary.org/wiki/Special:Search?search={}',
@@ -23,10 +27,13 @@ c.url.searchengines = {'ss': 'https://startpage.com/do/search?query={}',
 mono = '10pt monospace'
 small_mono = '9pt monospace'
 
+# c.hints.mode = 'number'
 c.hints.mode = 'letter'
-c.hints.chars = 'aoeuhtns'
+c.hints.chars = 'auhtns'
 
 c.auto_save.session = True
+
+c.tabs.width='10%'
 
 # Numbers to tabs
 
@@ -51,14 +58,38 @@ config.bind('<Alt-8>', 'tab-focus 18')
 config.bind('<Alt-9>', 'tab-focus 19')
 config.bind('<Alt-0>', 'tab-focus -1')
 
-config.bind('A', 'hint all tab-bg')
+# config.bind('A', 'hint all tab-bg')
+config.bind('A', 'hint all tab-bg --rapid')
 
 config.bind('a', 'set-cmd-text -s :open -t')
+config.bind('tw', 'set-cmd-text -s :open -w')
 
 config.bind('e', 'open-editor')
+
+config.bind('tg', 'set-cmd-text -s :tab-give')
 
 config.bind('>', 'tab-move +')
 config.bind('<', 'tab-move -')
 
-
 config.bind('<Ctrl-P>', 'tab-pin;; tab-move 1')
+config.bind('<Ctrl-I>', 'download-clear')
+
+config.bind('<Ctrl-L>', 'set tabs.width 10%;; set tabs.favicons.scale 0.8;; set tabs.indicator.width 0;;set tabs.title.format {index}:{current_title}')
+config.bind('<Ctrl-R>', 'set tabs.width 20%;; set tabs.favicons.scale 1;; set tabs.indicator.width 2;;set tabs.title.format {audio}{index}: {current_title}')
+
+c.tabs.pinned.frozen = False
+c.tabs.title.format_pinned = "{current_title}"
+
+c.tabs.background = True
+
+config.bind('ym', 'spawn --userscript yank.py')
+config.bind('yw', 'spawn --userscript yank_w.py')
+config.bind('yw', 'yank inline "[{url} {title}]"')
+
+config.bind('B', 'spawn --userscript open_fiamma_page.py')
+config.bind('T', 'hint inputs --first;; later 20 leave-mode;; later 20 open-editor')
+
+#c.editor.command = ['terminator', '-e', '\'vim {}\'']
+#c.editor.command = ['terminator', '-e', 'vim {}']
+
+config.bind('E', 'set-cmd-text -s :edit-url')
